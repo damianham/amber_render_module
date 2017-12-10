@@ -1,5 +1,5 @@
 require "./amber_render_module/*"
-require "./amber/**"
+require "./amber/controller/**"
 
 module AmberRenderModule
   # TODO Put your code here

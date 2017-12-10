@@ -25,30 +25,33 @@ dependencies:
 
 ## Usage
 
+Add the following to `config/application.cr`:
+
 ```crystal
 require "amber_render_module"
+require "../src/modules/**"
 ```
 
-In your controllers replace render(template_filename) with render_module(template_filename).
+In controllers in src/modules/<feature> replace render(template_filename) with render_module(template_filename).
 E.g.
-```
+```crystal
 render("index.slang") => render_module("index.slang")
 ```
 
-In edit.slang and new.slang replace render(partial) with render_module(partial)
-```
+In edit.slang and new.slang in src/replace render(partial) with render_module(partial)
+```crystal
 == render(partial: "_form.slang")
 ```
 
 becomes
-```
+```crystal
 == render_module(partial: "_form.slang")
 ```
 
 By default layouts will be rendered from the normal location (src/views/layouts) but you can pass a path
 to render within a layout from a different location, e.g.
 
-```
+```crystal
 render_module("index.slang", layout = true, nil, path = "src/modules")
 # render src/modules/post/index.slang in layout src/modules/layouts/application.slang
 
@@ -56,6 +59,10 @@ render_module("index.slang", layout = "post_layout.slang", nil, path = "src/modu
 # render src/modules/post/index.slang in layout src/modules/layouts/post_layout.slang
 ```
 
+You need to add src/modules to the amber watch command so that changes to your module artifacts cause a re-compilation
+```crystal
+amber watch -w "./config/**/*.cr" -w "./src/views/**/*.slang" -w "./src/modules/**/*.slang" -w "./src/modules/**/*.cr"
+```
 ## Development
 
 TODO: create a generator for the CLI similar to scaffold to generate the module artifacts in the same folder.
@@ -70,4 +77,4 @@ TODO: create a generator for the CLI similar to scaffold to generate the module 
 
 ## Contributors
 
-- [[your-github-name]](https://github.com/[your-github-name]) Damian Hamill - creator, maintainer
+- [damianham](https://github.com/damianham) Damian Hamill - creator, maintainer
