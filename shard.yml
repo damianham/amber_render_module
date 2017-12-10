@@ -1,0 +1,9 @@
+name: amber_render_module
+version: 0.1.0
+
+authors:
+  - Damian Hamill <damianham@gmail.com>
+
+crystal: 0.23.1
+
+license: MIT
