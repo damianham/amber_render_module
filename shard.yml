@@ -7,3 +7,6 @@ authors:
 crystal: 0.23.1
 
 license: MIT
+
+description: |
+  Render templates and partials from the same folder as the calling controller/view so all the artifacts for a feature code can be placed in the same folder

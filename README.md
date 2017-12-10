@@ -1,7 +1,18 @@
 # amber_render_module
 
-Place all of your code for a feature in a single folder in src/modules.  E.g. for a Post module
-to handle blog posts
+**Amber** is a web application framework written in [Crystal](http://www.crystal-lang.org) inspired by Kemal, Rails, Phoenix and other popular application frameworks.  Normally with Amber artifacts for a feature live in directories for the type of artifact, e.g.
+
+```
+src/controllers/post_controller.cr
+src/models/post.cr
+src/views/post/_form.slang
+src/views/post/edit.slang
+src/views/post/index.slang
+src/views/post/new.slang
+src/views/post/show.slang
+```
+
+Which is fine and dandy but with large code bases it is better to place all artifacts for a module of code that implements a feature in the same folder. E.g. for a Post module to handle blog posts
 
 ```
 src/modules/post/_form.slang
@@ -12,6 +23,10 @@ src/modules/post/post_controller.cr
 src/modules/post/post.cr
 src/modules/post/show.slang
 ```
+
+Use this shard to add a macro to ApplicationController so you can
+place all of your code for a feature in a single folder in src/modules
+(or src/features or however you want to organise your feature modules).
 
 ## Installation
 
