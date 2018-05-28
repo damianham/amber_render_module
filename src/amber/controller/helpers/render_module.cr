@@ -2,6 +2,14 @@ module Amber::Controller::Helpers
   module RenderModule
     LAYOUT = "application.slang"
 
+    private macro render_template(filename, path = "src/views")
+      {% if filename.id.split("/").size > 2 %}
+        Kilt.render("{{filename.id}}")
+      {% else %}
+        Kilt.render("#{{{path}}}/{{filename.id}}")
+       {% end %}
+    end
+
     # render the template or partial from the same folder as the calling artifact
     macro render_module(template = nil, layout = true, partial = nil, path = "src/views", folder = __DIR__)
       {% if !(template || partial) %}
@@ -29,6 +37,5 @@ module Amber::Controller::Helpers
         %content
       {% end %}
     end
-
   end
 end
