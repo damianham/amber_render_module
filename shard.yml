@@ -1,12 +1,12 @@
 name: amber_render_module
-version: 0.1.2
+version: 0.1.3
 
 authors:
   - Damian Hamill <damianham@gmail.com>
 
-crystal: 0.23.1
+crystal: <%= Crystal::VERSION %>
 
 license: MIT
 
 description: |
-  Render templates and partials from the same folder as the calling controller/view so all the artifacts for a feature code can be placed in the same folder
+  Render templates and partials from the same folder as the calling controller/mailer/view so all the artifacts for a feature code can be placed in the same folder
